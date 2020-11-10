@@ -1,0 +1,31 @@
+{
+  "name": "strapi-provider-upload-rokka",
+  "version": "0.1.0",
+  "description": "Rokka provider for Strapi CMS file upload.",
+  "repository": "https://github.com/rokka-io/strapi-provider-upload-rokka",
+  "scripts": {
+    "test": "echo \"no tests yet\""
+  },
+  "directories": {
+    "lib": "./lib"
+  },
+  "main": "./lib",
+  "keywords": [
+    "rokka",
+    "strapi",
+    "provider",
+    "file upload"
+  ],
+  "author": "rokka.io",
+  "engines": {
+    "node": ">=10.16.0 <=14.x.x",
+    "npm": ">=6.0.0"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "rokka": "^3.0.0-rc.1"
+  },
+  "strapi": {
+    "isProvider": true
+  }
+}
