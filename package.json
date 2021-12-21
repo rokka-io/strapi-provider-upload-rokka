@@ -23,7 +23,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "rokka": "^3.0.0-rc.1"
+    "rokka": "^3.0"
   },
   "strapi": {
     "isProvider": true
