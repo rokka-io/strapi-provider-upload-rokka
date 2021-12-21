@@ -65,6 +65,7 @@ Edit `config/middlewares.js` and replace `strapi::security` with
         useDefaults: true,
         directives: {
           'img-src': ["https:", 'data:', 'blob:', "'self'"],
+          'media-src':["https:", 'data:', 'blob:', "'self'"] // for videos hosted on rokka
         },
       },
     }
