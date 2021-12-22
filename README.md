@@ -24,7 +24,8 @@ module.exports = ({ env }) => ({
     providerOptions: {
       apiKey: env('ROKKA_API_KEY'),
       org: env('ROKKA_ORG'),
-      orgUrl: env('ROKKA_ORG_URL'),
+      orgUrl: env('ROKKA_ORG_URL'), 
+      uploadThumbnail: true
     },
   },
 });
@@ -43,6 +44,7 @@ module.exports = ({ env }) => ({
               apiKey: env('ROKKA_API_KEY'),
               org: env('ROKKA_ORG'),
               orgUrl: env('ROKKA_ORG_URL'),
+              uploadThumbnail: true
           },
       }
   },
@@ -63,11 +65,23 @@ Edit `config/middlewares.js` and replace `strapi::security` with
         useDefaults: true,
         directives: {
           'img-src': ["https:", 'data:', 'blob:', "'self'"],
+          'media-src':["https:", 'data:', 'blob:', "'self'"] // for videos hosted on rokka
         },
       },
     }
   }
 ```
 
-You can also disable `Enable responsive friendly upload` in your media library settings, otherwise you get the same image
+You should also disable `Enable responsive friendly upload` in your media library settings, otherwise you get the same image
 with different sizes in rokka, which is not needed. Rokka handles the resizing for you.
+
+# Config Options
+
+## uploadThumbnail
+
+Strapi uploads for each image also a "thumbnail" image for using in the media manager and other previews. This will
+generate another small source image on rokka, but prevents having to download the maybe big source image in those previews.
+Rokka could of course also generate that thumbnail out of the original source image without needing two source images, 
+but we couldn't figure out a way to do that.
+
+You can disable that feature with setting it to `false` or removing the attribute from the config file. 
